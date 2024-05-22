@@ -15,25 +15,30 @@ public class Usuario {
     }
 
 
-    public void crearNuevoAlbum(String nombreAlbum, int anio, String disquera) {
-        Album album = new Album(nombreAlbum , anio , disquera );
+    public void crearNuevoAlbum(String nombreAlbum, int anio, String disquera, String artista) {
+        Album album = new Album(nombreAlbum , anio , disquera, artista );
         albums.add(album);
     }
 
-    public void aniadirCancion(String titulo, String nombreAlbum){
+    public void aniadirCancion(String titulo, String nombreAlbum) {
+        boolean albumEncontrado = false;
         for (Album album : albums) {
-            if (album.getNombre().equals(nombreAlbum)) { // aqui tenemos el album
+            if (album.getNombre().equals(nombreAlbum)) {
+                albumEncontrado = true;
                 Cancion cancionPorAgregar = repositorio.buscarCancion(titulo);
-                if(cancionPorAgregar!= null){
+                if (cancionPorAgregar != null) {
                     album.aniadirCancion(cancionPorAgregar);
-                }else{
-                    System.out.println("Cancion no encontrada");
+                } else {
+                    System.out.println("Cancion no encontrada en el repositorio");
                 }
-            }else{
-                System.out.println("Album no encontrado");
+                break;
             }
         }
+        if (!albumEncontrado) {
+            System.out.println("Cancion no agregada, Album no existente");
+        }
     }
+    
 
 
     public void listarAlbumesPorAnio(String anio) {
@@ -47,18 +52,10 @@ public class Usuario {
     }
 
 
-    private Album encontrarAlbum(String anio) {
-        for (Album album : albums) {
-            if (album.getAnio() == Integer.parseInt(anio)) {
-                return album;
-            }
-        }
-        return null;
-    }
-
  public void listarContenidoDeAlbum(String nombreAlbum){
         for (Album album : albums) {
             if (album.getNombre().equals(nombreAlbum)) {
+                System.out.println("Album: " + album.getNombre());
                 album.listarCanciones();
                 System.out.println("Duracion total del album: " + album.duracionDelAlbum());
             }else{

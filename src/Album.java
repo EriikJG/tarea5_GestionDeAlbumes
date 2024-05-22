@@ -6,12 +6,14 @@ public class Album {
     private String nombre;
     private int anio;
     private String disquera;
+    private String artista;
     private List<Cancion> canciones;
 
-    public Album(String nombre, int anio, String disquera) {
+    public Album(String nombre, int anio, String disquera, String artista) {
         this.nombre = nombre;
         this.anio = anio;
         this.disquera = disquera;
+        this.artista = artista;
         this.canciones = new ArrayList<>();
     }
 
@@ -40,6 +42,7 @@ public class Album {
      * It does not return any value.
      */
     public void listarCanciones() {
+        System.out.println("Canciones del album: ");
         for (Cancion cancion : canciones) {
             System.out.println(cancion.getTitulo());
         }
@@ -69,6 +72,7 @@ public class Album {
         if (verificarCancionRepetida(cancion)) {
             System.out.println("La cancion ya existe en el album");
         }else{
+            System.out.println("Se agrego la cancion: " + cancion.getTitulo());
             canciones.add(cancion);
         }
 
@@ -90,7 +94,7 @@ public class Album {
      */
     @Override
     public String toString(){
-        String datosDelAlbum = "Nombre: " + this.nombre+ " Año: "+ this.anio+ " Disquera: "+ this.disquera;
+        String datosDelAlbum = "Nombre: " + this.nombre+ "\nAño: "+ this.anio+ "\nDisquera: "+ this.disquera + "\nArtista: "+ this.artista;
         return datosDelAlbum;
     }
 
