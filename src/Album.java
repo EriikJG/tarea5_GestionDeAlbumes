@@ -1,3 +1,4 @@
+import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -53,14 +54,20 @@ public class Album {
      *
      * @return the total duration of the album as a double value
      */
-    public double duracionDelAlbum(){
-        double duracion = 0;
+    public Duration duracionDelAlbum() {
+        Duration duracionTotal = Duration.ZERO;
         for (Cancion cancion : canciones) {
-            duracion += cancion.getDuracion();
+            duracionTotal = duracionTotal.plus(cancion.getDuracion());
         }
-        return duracion;
+        return duracionTotal;
     }
 
+    public String getDuracionTotalFormato() {
+        Duration duracionTotal = duracionDelAlbum();
+        long minutos = duracionTotal.toMinutes();
+        long segundos = duracionTotal.getSeconds() % 60;
+        return String.format("%d:%02d", minutos, segundos);
+    }
 
     /**
      * Adds a song to the album.

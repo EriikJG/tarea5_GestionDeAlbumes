@@ -1,3 +1,4 @@
+import java.time.Duration;
 import java.util.ArrayList;
 
 public class Repositorio {
@@ -57,7 +58,7 @@ public class Repositorio {
             if (album.getNombre().equals(nombreAlbum)) {
                 System.out.println("Album: " + album.getNombre());
                 album.listarCanciones();
-                System.out.println("Duracion total del album: " + album.duracionDelAlbum());
+                System.out.println("Duracion total del album: " + album.getDuracionTotalFormato());
                 encontrado = true;
             }
         }
@@ -94,10 +95,10 @@ public class Repositorio {
      * @return None
      */
     public void poblarRepositorio(){
-        Cancion cancion = new Cancion("Salsa" , 3.98 , "Luis-Miguel" );
-        Cancion cancion2 = new Cancion("Amar" , 3.98 , "JOSE" );
-        Cancion cancion3 = new Cancion("Depecho" , 3.98 , "PEPE" );
-        Cancion cancion4 = new Cancion("Salsa" , 3.98 , "PEDRO" );
+        Cancion cancion = new Cancion("Salsa" , Duration.ofMinutes(3).plusSeconds(45) , "Luis-Miguel" );
+        Cancion cancion2 = new Cancion("Amar" , Duration.ofMinutes(2).plusSeconds(22) , "JOSE" );
+        Cancion cancion3 = new Cancion("Depecho" , Duration.ofMinutes(4).plusSeconds(13) , "PEPE" );
+        Cancion cancion4 = new Cancion("Salsa" , Duration.ofMinutes(1).plusSeconds(52) , "PEDRO" );
 
         listaCanciones.add(cancion);
         listaCanciones.add(cancion2);
