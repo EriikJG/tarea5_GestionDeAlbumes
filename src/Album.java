@@ -72,7 +72,7 @@ public class Album {
         if (verificarCancionRepetida(cancion)) {
             System.out.println("La cancion ya existe en el album");
         }else{
-            System.out.println("Se agrego la cancion: " + cancion.getTitulo());
+            System.out.println("Se agrego la cancion: " + cancion.getTitulo() + ", al album: " + this.getNombre());
             canciones.add(cancion);
         }
 

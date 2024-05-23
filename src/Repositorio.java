@@ -3,12 +3,68 @@ import java.util.ArrayList;
 public class Repositorio {
 
     ArrayList<Cancion> listaCanciones;
+    ArrayList<Album> listaAlbumes;
 
     public Repositorio() {
         listaCanciones = new ArrayList<Cancion>();
+        listaAlbumes = new ArrayList<Album>();
         this.poblarRepositorio();
-
     }
+
+    public void crearNuevoAlbum(String nombreAlbum, int anio, String disquera, String artista) {
+        Album album = new Album(nombreAlbum, anio, disquera, artista);
+        listaAlbumes.add(album);
+        System.out.println("Album: "+album.getNombre()+". Creado exitosamente");
+    }
+
+    public void aniadirCancion(String titulo, String nombreAlbum) {
+        boolean albumEncontrado = false;
+        for (Album album : listaAlbumes) {
+            if (album.getNombre().equals(nombreAlbum)) {
+                albumEncontrado = true;
+                Cancion cancionPorAgregar = buscarCancion(titulo);
+                if (cancionPorAgregar != null) {
+                    album.aniadirCancion(cancionPorAgregar);
+                } else {
+                    System.out.println("Cancion no encontrada en el repositorio");
+                }
+                break;
+            }
+        }
+        if (!albumEncontrado) {
+            System.out.println("Cancion no agregada, Album no existente");
+        }
+    }
+    
+    public void listarAlbumesPorAnio(String anio) {
+        boolean encontrado = false;
+        for (Album album : listaAlbumes) {
+            if (album.getAnio() == Integer.parseInt(anio)) {
+                System.out.println("Album Encontrado:");
+                System.out.println(album.toString());
+                encontrado = true;
+            }
+        }
+        if (!encontrado) {
+            System.out.println("Album no encontrado");
+        }
+    }
+    
+
+    public void listarContenidoDeAlbum(String nombreAlbum) {
+        boolean encontrado = false;
+        for (Album album : listaAlbumes) {
+            if (album.getNombre().equals(nombreAlbum)) {
+                System.out.println("Album: " + album.getNombre());
+                album.listarCanciones();
+                System.out.println("Duracion total del album: " + album.duracionDelAlbum());
+                encontrado = true;
+            }
+        }
+        if (!encontrado) {
+            System.out.println("Album no encontrado");
+        }
+    }    
 
     /**
      * Searches for a song in the list of songs and returns it if found.
