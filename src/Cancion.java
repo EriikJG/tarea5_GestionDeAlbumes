@@ -1,9 +1,10 @@
+import java.time.Duration;
 public class Cancion {
     private final String titulo;
-    private final double duracion;
+    private final Duration duracion;
     private final String artista;
 
-    public Cancion(String titulo, double duracion, String artista) {
+    public Cancion(String titulo, Duration duracion, String artista) {
         this.titulo = titulo;
         this.duracion = duracion;
         this.artista = artista;
@@ -35,7 +36,9 @@ public class Cancion {
      * @param  None
      * @return the duration of the object as a double value
      */
-    public double getDuracion() {
+    public Duration getDuracion() {
         return duracion;
     }
+
+    
 }
