@@ -2,6 +2,9 @@ import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Representa un álbum de música con un nombre, año, disquera, artista y una lista de canciones.
+ */
 public class Album {
 
     private String nombre;
@@ -10,6 +13,14 @@ public class Album {
     private String artista;
     private List<Cancion> canciones;
 
+    /**
+     * Crea una nueva instancia de Album.
+     *
+     * @param nombre el nombre del álbum
+     * @param anio el año de lanzamiento del álbum
+     * @param disquera la disquera del álbum
+     * @param artista el artista del álbum
+     */
     public Album(String nombre, int anio, String disquera, String artista) {
         this.nombre = nombre;
         this.anio = anio;
@@ -19,40 +30,37 @@ public class Album {
     }
 
     /**
-     * Retrieves the name of the album.
+     * Obtiene el nombre del álbum.
      *
-     * @return the name of the album as a String
+     * @return el nombre del álbum como String
      */
     public String getNombre() {
         return nombre;
     }
 
     /**
-     * Sets the nombre of the object.
+     * Establece el nombre del álbum.
      *
-     * @param  nombre  the new nombre to be set
+     * @param nombre el nuevo nombre del álbum
      */
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
 
     /**
-     * Prints the titles of all the songs in the album.
-     *
-     * This function iterates over each song in the album and prints its title.
-     * It does not return any value.
+     * Imprime los títulos de todas las canciones del álbum.
      */
     public void listarCanciones() {
-        System.out.println("Canciones del album: ");
+        System.out.println("Canciones del álbum: ");
         for (Cancion cancion : canciones) {
             System.out.println(cancion.getTitulo());
         }
     }
 
     /**
-     * Calculates the total duration of the album by summing the durations of all the songs in the album.
+     * Calcula la duración total del álbum sumando las duraciones de todas las canciones del álbum.
      *
-     * @return the total duration of the album as a double value
+     * @return la duración total del álbum como un objeto Duration
      */
     public Duration duracionDelAlbum() {
         Duration duracionTotal = Duration.ZERO;
@@ -62,6 +70,11 @@ public class Album {
         return duracionTotal;
     }
 
+    /**
+     * Obtiene la duración total del álbum en formato de minutos y segundos.
+     *
+     * @return una cadena que representa la duración total del álbum en el formato "mm:ss"
+     */
     public String getDuracionTotalFormato() {
         Duration duracionTotal = duracionDelAlbum();
         long minutos = duracionTotal.toMinutes();
@@ -70,59 +83,55 @@ public class Album {
     }
 
     /**
-     * Adds a song to the album.
+     * Agrega una canción al álbum.
      *
-     * @param  cancion  the song to be added
-     * @return          void
+     * @param cancion la canción a agregar
      */
     public void aniadirCancion(Cancion cancion) {
         if (verificarCancionRepetida(cancion)) {
-            System.out.println("La cancion ya existe en el album");
-        }else{
-            System.out.println("Se agrego la cancion: " + cancion.getTitulo() + ", al album: " + this.getNombre());
+            System.out.println("La canción ya existe en el álbum");
+        } else {
+            System.out.println("Se agregó la canción: " + cancion.getTitulo() + ", al álbum: " + this.getNombre());
             canciones.add(cancion);
         }
-
     }
 
     /**
-     * Retrieves the year of the album.
+     * Obtiene el año del álbum.
      *
-     * @return the year of the album as an integer
+     * @return el año del álbum como un entero
      */
     public int getAnio() {
         return anio;
     }
 
     /**
-     * Returns a string representation of the album object, including its name, year, and record label.
+     * Devuelve una representación en cadena del objeto álbum, incluyendo su nombre, año y disquera.
      *
-     * @return a string containing the album's name, year, and record label
+     * @return una cadena que contiene el nombre, año y disquera del álbum
      */
     @Override
-    public String toString(){
-        String datosDelAlbum = "Nombre: " + this.nombre+ "\nAño: "+ this.anio+ "\nDisquera: "+ this.disquera + "\nArtista: "+ this.artista;
+    public String toString() {
+        String datosDelAlbum = "Nombre: " + this.nombre + "\nAño: " + this.anio + "\nDisquera: " + this.disquera + "\nArtista: " + this.artista;
         return datosDelAlbum;
     }
 
-
     /**
-     * Retrieves the list of songs in the album.
+     * Obtiene la lista de canciones del álbum.
      *
-     * @param  None
-     * @return  an ArrayList of Cancion objects representing the songs in the album
+     * @return una lista de objetos Cancion que representan las canciones del álbum
      */
     public ArrayList<Cancion> getCanciones() {
         return (ArrayList<Cancion>) canciones;
     }
 
     /**
-     * Checks if a given song is already present in the album's list of songs.
+     * Verifica si una canción dada ya está presente en la lista de canciones del álbum.
      *
-     * @param  cancion  the song to be checked
-     * @return          true if the song is already in the list, false otherwise
+     * @param cancion la canción a verificar
+     * @return true si la canción ya está en la lista, false en caso contrario
      */
-    public boolean verificarCancionRepetida(Cancion cancion){
+    public boolean verificarCancionRepetida(Cancion cancion) {
         return canciones.contains(cancion);
     }
 }

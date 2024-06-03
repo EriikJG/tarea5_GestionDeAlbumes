@@ -1,9 +1,20 @@
 import java.time.Duration;
+
+/**
+ * Representa una canción con un título, duración y artista.
+ */
 public class Cancion {
     private final String titulo;
     private final Duration duracion;
     private final String artista;
 
+    /**
+     * Crea una nueva instancia de Cancion.
+     *
+     * @param titulo el título de la canción
+     * @param duracion la duración de la canción
+     * @param artista el artista de la canción
+     */
     public Cancion(String titulo, Duration duracion, String artista) {
         this.titulo = titulo;
         this.duracion = duracion;
@@ -11,34 +22,27 @@ public class Cancion {
     }
 
     /**
-     * Prints a message indicating that the song is being played, along with the title of the song.
-     *
-     * @param  None
-     * @return void
+     * Imprime un mensaje indicando que la canción se está reproduciendo, junto con el título de la canción.
      */
     public void reproducir() {
         System.out.println("Reproduciendo Cancion..." + this.titulo);
     }
 
     /**
-     * Retrieves the title of the object.
+     * Obtiene el título de la canción.
      *
-     * @param  None
-     * @return the title of the object as a string
+     * @return el título de la canción como una cadena
      */
     public String getTitulo() {
         return titulo;
     }
 
     /**
-     * Retrieves the duration of the object.
+     * Obtiene la duración de la canción.
      *
-     * @param  None
-     * @return the duration of the object as a double value
+     * @return la duración de la canción como un objeto Duration
      */
     public Duration getDuracion() {
         return duracion;
     }
-
-    
 }
