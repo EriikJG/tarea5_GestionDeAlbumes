@@ -19,6 +19,6 @@ HU5. Como usuario, quiero poder buscar álbumes por el año para encontrar rápi
 
  1.Crear un diagrama de clases en base a las historias de usuario proporcionadas 
  
- 2.Documentar el ambiente de desarrollo }
+ 2.Documentar el ambiente de desarrollo 
  
  3.Implementar el código y obtener la documentación del código fuente.
