@@ -1,4 +1,10 @@
 Tarea #5
+
+GRUPO: CODE_CEK
+INTEGRANTES: 
+- ERIK JOEL GAIBOR GUACHAMIN
+- KEVIN ALEXANDER LEMA NARANJO
+- CHRISTIAN GABRIEL NAZATE TAPIA
 Crear un software que cumpla los siguientes requisitos: 
 
 HU1. Como usuario, quiero poder agregar un nuevo álbum con su información básica (nombre, año de lanzamiento, disquera y artistas) para mantener un registro de la música que escucho. 
@@ -11,6 +17,6 @@ HU4. Como usuario, quiero poder ver la lista de canciones de un álbum específi
 
 HU5. Como usuario, quiero poder buscar álbumes por el año para encontrar rápidamente la información que estoy buscando.
 
-1.Crear un diagrama de clases en base a las historias de usuario proporcionadas 
-2.Documentar el ambiente de desarrollo 
-3.Implementar el código y obtener la documentación del código fuente.
+ 1.Crear un diagrama de clases en base a las historias de usuario proporcionadas 
+ 2.Documentar el ambiente de desarrollo 
+ 3.Implementar el código y obtener la documentación del código fuente.
