@@ -145,8 +145,8 @@ System.out.println("******Historia 3 - Evitar agregar canciones repetidas:******
 - Usar comentarios para explicar el propósito de las clases, métodos y cualquier lógica compleja.
 - Ejemplo:
 
-    ```java
-    public void crearNuevoAlbum(String nombreAlbum, int anio, String disquera, String artista) {
+```java
+public void crearNuevoAlbum(String nombreAlbum, int anio, String disquera, String artista) {
     // Crear una nueva instancia de Album con los datos proporcionados
     Album album = new Album(nombreAlbum, anio, disquera, artista);
     
@@ -154,10 +154,9 @@ System.out.println("******Historia 3 - Evitar agregar canciones repetidas:******
     listaAlbumes.add(album);
     
     // Imprimir un mensaje de confirmación en la consola
-    System.out.println("Album: " + album.getNombre() + ". Creado exitosamente");
+    System.out.println("Album: " + album.getNombre() + ". Creado exitosamente"); 
 }
-    
 ```
-### 9. Conclusión
+##### 9. Conclusión
 
 Esta documentación detalla cómo configurar el ambiente de desarrollo, incluye un diagrama de clases básico y proporciona una implementación de ejemplo del código fuente. Siguiendo estas instrucciones, los desarrolladores podrán reproducir y continuar el desarrollo del proyecto conforme a los requisitos establecidos en las historias de usuario.
