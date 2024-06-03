@@ -82,6 +82,8 @@
 ##### 7.2 Diagrama de clases
 El diagrama de clases puede ser representado con una herramienta como Draw.io, Lucidchart o cualquier otra herramienta de diagramación UML. A continuación se describe una estructura básica:
 
+![Diagrama de clases](Diagrama_de_clases.png)
+
 
 ##### 7.3 Implementación del Código
 A continuación se presenta  la clase *Main* como ejemplo de implementación de código:
